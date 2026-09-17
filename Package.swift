@@ -49,14 +49,6 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-equation.git",
-            branch: "main"
-        ),
-        .package(
-            url: "https://github.com/swift-molecules/swift-hash.git",
-            branch: "main"
-        ),
-        .package(
             url: "https://github.com/swift-molecules/swift-error.git",
             branch: "main"
         ),
@@ -94,8 +86,6 @@ let package = Package(
             dependencies: [
                 "POSIX Core",
                 .product(name: "Error", package: "swift-error"),
-                .product(name: "Equation", package: "swift-equation"),
-                .product(name: "Hash", package: "swift-hash"),
                 .product(name: "ISO 9945 Kernel File", package: "swift-iso-9945"),
             ]
         ),
