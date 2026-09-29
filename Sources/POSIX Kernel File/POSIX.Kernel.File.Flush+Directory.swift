@@ -14,7 +14,7 @@ extension POSIX.Kernel.File.Flush {
 
             switch error {
             case .handle(let e): throw .handle(e)
-            case .path: throw .platform(Error.Error(code: .POSIX.ENOENT))
+            case .path: throw .platform(Error::Error(code: .POSIX.ENOENT))
             case .platform(let e): throw .platform(e)
             }
         }

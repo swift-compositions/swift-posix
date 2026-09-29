@@ -13,7 +13,7 @@ extension POSIX.Kernel.User.Effective {
     }
 
     @inlinable
-    public static func set(_ uid: ISO_9945.Kernel.User.ID) throws(Error.Error) {
+    public static func set(_ uid: ISO_9945.Kernel.User.ID) throws(Error::Error) {
         try ISO_9945.Kernel.User.Effective.set(uid)
     }
 }

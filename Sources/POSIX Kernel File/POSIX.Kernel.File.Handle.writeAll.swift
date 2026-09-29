@@ -33,7 +33,7 @@ extension ISO_9945.Kernel.File.Handle {
                 throw .left(
                     Self.Error(
                         from: ISO_9945.Kernel.IO.Write.Error.platform(
-                            Error.Error(code: .POSIX.EIO)
+                            Error::Error(code: .POSIX.EIO)
                         ),
                         operation: .write
                     )

@@ -4,7 +4,7 @@ public import ISO_9945_Core
 extension POSIX.Kernel.Close {
     public enum Error: Swift.Error, Sendable {
         case handle(POSIX.Kernel.Descriptor.Validity.Error)
-        case platform(Error.Error)
+        case platform(Error::Error)
     }
 }
 
