@@ -37,8 +37,7 @@ extension POSIX.Kernel.Poll {
             do throws(Error::Error) {
                 return try ISO_9945.Kernel.Poll.poll(&entries, timeout: remaining)
             } catch  where error.code.isInterrupted {
-                let elapsedMilliseconds =
-                    (Clock.Continuous.now.nanoseconds - start.nanoseconds) / 1_000_000
+                let elapsedMilliseconds = UInt64((Clock.Continuous.now.offset - start.offset) / .milliseconds(1))
                 guard elapsedMilliseconds < UInt64(timeout) else {
                     return 0
                 }
