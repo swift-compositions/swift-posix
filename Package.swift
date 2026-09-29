@@ -275,7 +275,7 @@ let package = Package(
                 "POSIX Core",
                 .product(name: "ISO 9945 Core", package: "swift-iso-9945"),
                 .product(name: "ISO 9945 Loader", package: "swift-iso-9945"),
-                .product(name: "Loader", package: "swift-loader-vocabulary"),
+                .product(name: "Loader Vocabulary", package: "swift-loader-vocabulary"),
             ]
         ),
 
