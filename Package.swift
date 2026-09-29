@@ -49,11 +49,11 @@ let package = Package(
     ],
     dependencies: [
         .package(
-            url: "https://github.com/swift-molecules/swift-error.git",
+            url: "https://github.com/swift-atoms/swift-error.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-path.git",
+            url: "https://github.com/swift-atoms/swift-path.git",
             branch: "main"
         ),
         .package(
@@ -61,14 +61,16 @@ let package = Package(
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-glob.git",
+            url: "https://github.com/swift-atoms/swift-glob.git",
             branch: "main"
         ),
         .package(
-            url: "https://github.com/swift-molecules/swift-either.git",
+            url: "https://github.com/swift-atoms/swift-either.git",
             branch: "main"
         ),
         .package(url: "https://github.com/swift-iso/swift-iso-9945.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-memory.git", branch: "main", traits: ["Lock", "Map", "Shared"]),
+        .package(url: "https://github.com/swift-atoms/swift-system.git", branch: "main"),
     ],
     targets: [
 
@@ -151,6 +153,8 @@ let package = Package(
                 "POSIX Core",
                 "POSIX Kernel Descriptor",
                 .product(name: "ISO 9945 Kernel Memory", package: "swift-iso-9945"),
+                .product(name: "Memory", package: "swift-memory"),
+                .product(name: "System", package: "swift-system"),
             ]
         ),
 

@@ -1,6 +1,3 @@
 public import ISO_9945_Kernel_Memory
 
-extension POSIX.Kernel.Memory {
-
-    public typealias Page = System.Page
-}
+// The unused POSIX.Kernel.Memory.Page alias was retired with System.Page.
