@@ -13,7 +13,7 @@ extension POSIX.Kernel.Socket {
 extension POSIX.Kernel.Socket.Accept {
 
     public static func accept(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
     ) throws(ISO_9945.Kernel.Socket.Error) -> ISO_9945.Kernel.Socket.Accept.Result {
         while true {
             do throws(ISO_9945.Kernel.Socket.Error) {

@@ -9,7 +9,7 @@ extension POSIX.Kernel.Socket {
 extension POSIX.Kernel.Socket.Connect {
 
     public static func start(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor,
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
         address: ISO_9945.Kernel.Socket.Address.Storage,
         length: ISO_9945.Kernel.Socket.Address.Length
     ) throws(ISO_9945.Kernel.Socket.Error) -> Start {
@@ -22,7 +22,7 @@ extension POSIX.Kernel.Socket.Connect {
     }
 
     public static func finish(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
     ) throws(ISO_9945.Kernel.Socket.Error) {
         let code = try ISO_9945.Kernel.Socket.getError(descriptor)
         guard code == .posix(0) else {
@@ -31,7 +31,7 @@ extension POSIX.Kernel.Socket.Connect {
     }
 
     public static func awaitCompletion(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
     ) throws(ISO_9945.Kernel.Socket.Error) {
         var entries = [ISO_9945.Kernel.Poll.Entry(descriptor, requested: .output)]
 
@@ -56,7 +56,7 @@ extension POSIX.Kernel.Socket.Connect {
 extension POSIX.Kernel.Socket.Connect {
 
     public static func connect(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor,
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
         address: ISO_9945.Kernel.Socket.Address.Storage,
         length: ISO_9945.Kernel.Socket.Address.Length
     ) throws(ISO_9945.Kernel.Socket.Error) {
@@ -68,7 +68,7 @@ extension POSIX.Kernel.Socket.Connect {
     }
 
     public static func connect(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor,
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
         address: ISO_9945.Kernel.Socket.Address.IPv4
     ) throws(ISO_9945.Kernel.Socket.Error) {
         do throws(ISO_9945.Kernel.Socket.Error) {
@@ -79,7 +79,7 @@ extension POSIX.Kernel.Socket.Connect {
     }
 
     public static func connect(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor,
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
         address: ISO_9945.Kernel.Socket.Address.IPv6
     ) throws(ISO_9945.Kernel.Socket.Error) {
         do throws(ISO_9945.Kernel.Socket.Error) {
@@ -90,7 +90,7 @@ extension POSIX.Kernel.Socket.Connect {
     }
 
     public static func connect(
-        _ descriptor: borrowing ISO_9945.Kernel.Socket.Descriptor,
+        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
         address: ISO_9945.Kernel.Socket.Address.Unix
     ) throws(ISO_9945.Kernel.Socket.Error) {
         do throws(ISO_9945.Kernel.Socket.Error) {
