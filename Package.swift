@@ -155,7 +155,7 @@ let package = Package(
                 "POSIX Kernel Descriptor",
                 .product(name: "ISO 9945 Kernel Memory", package: "swift-iso-9945"),
                 .product(name: "Memory", package: "swift-memory"),
-                .product(name: "System", package: "swift-system"),
+                .product(name: "System Primitives", package: "swift-system"),
             ]
         ),
 
