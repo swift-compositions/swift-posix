@@ -15,8 +15,7 @@ extension POSIX.Kernel.Pipe {
 extension POSIX.Kernel.Pipe {
 
     @inlinable
-    public static func pipe() throws(ISO_9945.Kernel.Pipe.Error) -> ISO_9945.Kernel.Pipe.Descriptors
-    {
+    public static func pipe() throws(ISO_9945.Kernel.Pipe.Error) -> ISO_9945.Kernel.Pipe.Descriptors {
         while true {
             do throws(ISO_9945.Kernel.Pipe.Error) {
                 return try ISO_9945.Kernel.Pipe.pipe()

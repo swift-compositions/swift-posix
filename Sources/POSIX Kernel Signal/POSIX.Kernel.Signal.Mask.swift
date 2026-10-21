@@ -21,8 +21,7 @@ extension POSIX.Kernel.Signal.Mask {
     }
 
     @inlinable
-    public static func pending() throws(ISO_9945.Kernel.Signal.Error) -> ISO_9945.Kernel.Signal.Set
-    {
+    public static func pending() throws(ISO_9945.Kernel.Signal.Error) -> ISO_9945.Kernel.Signal.Set {
         try ISO_9945.Kernel.Signal.Mask.pending()
     }
 }
