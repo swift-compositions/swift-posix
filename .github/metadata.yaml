@@ -9,3 +9,4 @@ socialPreview:
   displayName: "POSIX"
 readme:
   family: E
+platforms: apple,linux
