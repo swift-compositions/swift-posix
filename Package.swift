@@ -71,7 +71,6 @@ let package = Package(
         ),
         .package(url: "https://github.com/swift-iso/swift-iso-9945.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-memory.git", branch: "main", traits: ["Lock", "Map", "Shared"]),
-        .package(url: "https://github.com/swift-atoms/swift-system.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-parser.git", branch: "main", traits: ["Map", "IteratorLeaves", "Product", "Skip", "Append", "Either", "Iterator"]),
     ],
     targets: [
@@ -156,7 +155,6 @@ let package = Package(
                 "POSIX Kernel Descriptor",
                 .product(name: "ISO 9945 Kernel Memory", package: "swift-iso-9945"),
                 .product(name: "Memory", package: "swift-memory"),
-                .product(name: "System Primitives", package: "swift-system"),
             ]
         ),
 
