@@ -4,11 +4,7 @@
     public import Glob
 
     public func makePath(_ string: Swift.String) -> Path {
-        let utf8 = Array(string.utf8)
-        let buffer = UnsafeMutablePointer<Path.Char>.allocate(capacity: utf8.count + 1)
-        for (i, byte) in utf8.enumerated() { unsafe buffer[i] = byte }
-        unsafe buffer[utf8.count] = 0
-        return unsafe Path(adopting: buffer, count: utf8.count)
+        Path(Array(string.utf8).span)
     }
 
     extension Glob {

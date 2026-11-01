@@ -322,57 +322,36 @@ extension Glob {
         _ base: borrowing Path,
         _ entry: ISO_9945.Kernel.Directory.Entry
     ) -> Path {
-        let baseView = base.view
-        let needsSep =
-            unsafe baseView.count > 0
-            && baseView.pointer[baseView.count - 1] != ASCII.Character.Graphic.slant
-        let sepSize = needsSep ? 1 : 0
-
-        let (buffer, totalCount): (UnsafeMutablePointer<Path.Char>, Int) = unsafe entry.withName {
-            name in
-            let nameCount = name.count
-            let totalCount = baseView.count + sepSize + nameCount
-
-            let buffer = UnsafeMutablePointer<Path.Char>.allocate(capacity: totalCount + 1)
-            unsafe buffer.initialize(from: baseView.pointer, count: baseView.count)
-            var offset = baseView.count
-            if needsSep {
-                unsafe buffer[offset] = ASCII.Character.Graphic.slant
-                offset += 1
-            }
-            unsafe buffer.advanced(by: offset).initialize(from: name.pointer, count: nameCount)
-            unsafe buffer[totalCount] = 0
-
-            return unsafe (buffer, totalCount)
+        let separator = separator(after: base)
+        return unsafe entry.withName { name in
+            Path.joining(base.view, separator: separator, name)
         }
-
-        return unsafe Path(adopting: buffer, count: totalCount)
     }
 
     private static func appendPath(
         _ base: borrowing Path,
         _ component: [UInt8]
     ) -> Path {
-        let baseView = base.view
-        let needsSep =
-            unsafe baseView.count > 0
-            && baseView.pointer[baseView.count - 1] != ASCII.Character.Graphic.slant
-        let sepSize = needsSep ? 1 : 0
-        let totalCount = baseView.count + sepSize + component.count
-
-        let buffer = UnsafeMutablePointer<Path.Char>.allocate(capacity: totalCount + 1)
-        unsafe buffer.initialize(from: baseView.pointer, count: baseView.count)
-        var offset = baseView.count
-        if needsSep {
-            unsafe buffer[offset] = ASCII.Character.Graphic.slant
-            offset += 1
+        let separator = separator(after: base)
+        let gap = separator == nil ? 0 : 1
+        let baseCount = base.count
+        let basePointer = unsafe base.view.pointer
+        return unsafe Path(count: baseCount + gap + component.count) { buffer in
+            unsafe buffer.initialize(from: basePointer, count: baseCount)
+            if let separator {
+                unsafe buffer[baseCount] = separator
+            }
+            for (index, byte) in component.enumerated() {
+                unsafe buffer[baseCount + gap + index] = byte
+            }
         }
-        for (i, byte) in component.enumerated() {
-            unsafe buffer[offset + i] = byte
-        }
-        unsafe buffer[totalCount] = 0
+    }
 
-        return unsafe Path(adopting: buffer, count: totalCount)
+    /// The slant to put between `base` and a name, or `nil` when `base` already ends in one.
+    private static func separator(after base: borrowing Path) -> Path.Char? {
+        let count = base.count
+        let endsWithSlant = unsafe count > 0 && base.view.pointer[count - 1] == ASCII.Character.Graphic.slant
+        return endsWithSlant ? nil : ASCII.Character.Graphic.slant
     }
 }
 
