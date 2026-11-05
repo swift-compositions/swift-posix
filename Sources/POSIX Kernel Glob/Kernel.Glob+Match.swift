@@ -323,7 +323,7 @@ extension Glob {
         _ entry: ISO_9945.Kernel.Directory.Entry
     ) -> Path {
         let separator = separator(after: base)
-        return unsafe entry.withName { name in
+        return entry.withName { name in
             Path.joining(base.view, separator: separator, name)
         }
     }
