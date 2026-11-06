@@ -87,7 +87,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Descriptor",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "Error", package: "swift-error"),
                 .product(name: "ISO 9945 Kernel File", package: "swift-iso-9945"),
             ]
@@ -96,7 +96,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel File",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "Path", package: "swift-path"),
                 .product(name: "Either", package: "swift-either"),
                 .product(name: "ISO 9945 Kernel File", package: "swift-iso-9945"),
@@ -106,8 +106,8 @@ let package = Package(
         .target(
             name: "POSIX Kernel Directory",
             dependencies: [
-                "POSIX Core",
-                "POSIX Kernel Descriptor",
+                .target(name: "POSIX Core"),
+                .target(name: "POSIX Kernel Descriptor"),
                 .product(name: "ISO 9945 Kernel Directory", package: "swift-iso-9945"),
             ]
         ),
@@ -115,8 +115,8 @@ let package = Package(
         .target(
             name: "POSIX Kernel Lock",
             dependencies: [
-                "POSIX Core",
-                "POSIX Kernel Descriptor",
+                .target(name: "POSIX Core"),
+                .target(name: "POSIX Kernel Descriptor"),
                 .product(name: "ISO 9945 Kernel Lock", package: "swift-iso-9945"),
             ]
         ),
@@ -124,9 +124,9 @@ let package = Package(
         .target(
             name: "POSIX Kernel Poll",
             dependencies: [
-                "POSIX Core",
-                "POSIX Kernel Clock",
-                "POSIX Kernel Descriptor",
+                .target(name: "POSIX Core"),
+                .target(name: "POSIX Kernel Clock"),
+                .target(name: "POSIX Kernel Descriptor"),
                 .product(name: "ISO 9945 Kernel Poll", package: "swift-iso-9945"),
             ]
         ),
@@ -134,7 +134,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Socket",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Socket", package: "swift-iso-9945"),
                 .product(name: "ISO 9945 Kernel Poll", package: "swift-iso-9945"),
             ]
@@ -143,7 +143,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Socket Address",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Socket Address", package: "swift-iso-9945"),
             ]
         ),
@@ -151,8 +151,8 @@ let package = Package(
         .target(
             name: "POSIX Kernel Memory",
             dependencies: [
-                "POSIX Core",
-                "POSIX Kernel Descriptor",
+                .target(name: "POSIX Core"),
+                .target(name: "POSIX Kernel Descriptor"),
                 .product(name: "ISO 9945 Kernel Memory", package: "swift-iso-9945"),
                 .product(name: "Memory", package: "swift-memory"),
             ]
@@ -161,7 +161,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Signal",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Signal", package: "swift-iso-9945"),
             ]
         ),
@@ -169,7 +169,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Process",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Process", package: "swift-iso-9945"),
             ]
         ),
@@ -177,7 +177,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Thread",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Thread", package: "swift-iso-9945"),
             ]
         ),
@@ -185,8 +185,8 @@ let package = Package(
         .target(
             name: "POSIX Kernel Terminal",
             dependencies: [
-                "POSIX Core",
-                "POSIX Kernel Descriptor",
+                .target(name: "POSIX Core"),
+                .target(name: "POSIX Kernel Descriptor"),
                 .product(name: "ISO 9945 Kernel Terminal", package: "swift-iso-9945"),
             ]
         ),
@@ -194,7 +194,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Environment",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Environment", package: "swift-iso-9945"),
             ]
         ),
@@ -202,7 +202,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel System",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel System", package: "swift-iso-9945"),
             ]
         ),
@@ -210,7 +210,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Glob",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "Path", package: "swift-path"),
                 .product(name: "ISO 9945 Kernel Directory", package: "swift-iso-9945"),
                 .product(name: "ISO 9945 Kernel File", package: "swift-iso-9945"),
@@ -223,7 +223,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Clock",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Clock", package: "swift-iso-9945"),
             ]
         ),
@@ -231,7 +231,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Time",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Time", package: "swift-iso-9945"),
             ]
         ),
@@ -239,7 +239,7 @@ let package = Package(
         .target(
             name: "POSIX Kernel Identity",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Kernel Identity", package: "swift-iso-9945"),
             ]
         ),
@@ -247,32 +247,32 @@ let package = Package(
         .target(
             name: "POSIX Kernel",
             dependencies: [
-                "POSIX Core",
-                "POSIX Kernel Descriptor",
-                "POSIX Kernel File",
-                "POSIX Kernel Directory",
-                "POSIX Kernel Lock",
-                "POSIX Kernel Poll",
-                "POSIX Kernel Socket",
-                "POSIX Kernel Socket Address",
-                "POSIX Kernel Memory",
-                "POSIX Kernel Signal",
-                "POSIX Kernel Process",
-                "POSIX Kernel Thread",
-                "POSIX Kernel Terminal",
-                "POSIX Kernel Environment",
-                "POSIX Kernel System",
-                "POSIX Kernel Glob",
-                "POSIX Kernel Clock",
-                "POSIX Kernel Time",
-                "POSIX Kernel Identity",
+                .target(name: "POSIX Core"),
+                .target(name: "POSIX Kernel Descriptor"),
+                .target(name: "POSIX Kernel File"),
+                .target(name: "POSIX Kernel Directory"),
+                .target(name: "POSIX Kernel Lock"),
+                .target(name: "POSIX Kernel Poll"),
+                .target(name: "POSIX Kernel Socket"),
+                .target(name: "POSIX Kernel Socket Address"),
+                .target(name: "POSIX Kernel Memory"),
+                .target(name: "POSIX Kernel Signal"),
+                .target(name: "POSIX Kernel Process"),
+                .target(name: "POSIX Kernel Thread"),
+                .target(name: "POSIX Kernel Terminal"),
+                .target(name: "POSIX Kernel Environment"),
+                .target(name: "POSIX Kernel System"),
+                .target(name: "POSIX Kernel Glob"),
+                .target(name: "POSIX Kernel Clock"),
+                .target(name: "POSIX Kernel Time"),
+                .target(name: "POSIX Kernel Identity"),
             ]
         ),
 
         .target(
             name: "POSIX Loader",
             dependencies: [
-                "POSIX Core",
+                .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Core", package: "swift-iso-9945"),
                 .product(name: "ISO 9945 Loader", package: "swift-iso-9945"),
                 .product(name: "Loader Vocabulary", package: "swift-loader-vocabulary"),
@@ -282,8 +282,8 @@ let package = Package(
         .target(
             name: "POSIX Test Support",
             dependencies: [
-                "POSIX Kernel",
-                "POSIX Loader",
+                .target(name: "POSIX Kernel"),
+                .target(name: "POSIX Loader"),
             ],
             path: "Tests/Support"
         ),
@@ -291,8 +291,8 @@ let package = Package(
         .testTarget(
             name: "POSIX Kernel Tests",
             dependencies: [
-                "POSIX Kernel",
-                "POSIX Test Support",
+                .target(name: "POSIX Kernel"),
+                .target(name: "POSIX Test Support"),
             ]
         ),
     ],
