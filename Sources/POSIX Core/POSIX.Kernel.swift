@@ -6,14 +6,6 @@ extension POSIX {
 }
 
 extension POSIX.Kernel {
-}
 
-extension POSIX.Kernel {
-
-    public typealias Permission = ISO_9945.Kernel.Permission
-}
-
-extension POSIX.Kernel {
-
-    public typealias Storage = ISO_9945.Kernel.Storage
+    public enum File {}
 }

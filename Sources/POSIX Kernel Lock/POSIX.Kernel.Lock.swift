@@ -20,6 +20,7 @@ extension POSIX.Kernel.Lock {
 
     public typealias Scope = ISO_9945.Kernel.Lock.Scope
 
+    public enum Immediate: Sendable {}
 }
 
 extension POSIX.Kernel.Lock {
