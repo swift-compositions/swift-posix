@@ -50,3 +50,13 @@ extension POSIX.Kernel.Directory {
         }
     }
 }
+
+extension POSIX.Kernel.Directory {
+
+    public typealias Entry = ISO_9945.Kernel.Directory.Entry
+}
+
+extension POSIX.Kernel.Directory {
+
+    public typealias Stream = ISO_9945.Kernel.Directory.Stream
+}
