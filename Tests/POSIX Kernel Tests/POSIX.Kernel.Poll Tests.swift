@@ -90,7 +90,7 @@
     extension POSIX.Kernel.Poll.Test.`Edge Case` {
 
         @Test
-        func pollWithTimeoutReturnsNearDeadlineDespiteRepeatedEINTR() throws {
+        func `poll with timeout returns near deadline despite repeated EINTR`() throws {
             let descriptors = try POSIX.Kernel.Pipe.pipe()
 
             // LLDB stops on SIGUSR1 by default. SIGURG still interrupts poll,
