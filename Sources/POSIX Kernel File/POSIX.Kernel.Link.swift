@@ -20,3 +20,8 @@ extension POSIX.Kernel.Link {
         try ISO_9945.Kernel.Link.create(at: linkPath, to: existingPath)
     }
 }
+
+extension POSIX.Kernel.Link {
+
+    public typealias Count = ISO_9945.Kernel.Link.Count
+}
