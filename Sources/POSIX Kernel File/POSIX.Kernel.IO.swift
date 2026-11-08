@@ -4,3 +4,8 @@ extension POSIX.Kernel.IO {
 
     public typealias Blocking = ISO_9945.Kernel.IO.Blocking
 }
+
+extension POSIX.Kernel.IO {
+
+    public typealias Error = ISO_9945.Kernel.IO.Error
+}
