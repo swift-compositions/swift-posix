@@ -41,7 +41,19 @@ extension POSIX.Kernel.File.Flush {
 
             switch error {
             case .handle(let e): throw .handle(e)
-            case .path: throw .platform(Error::Error(code: .ENOENT))
+            case .path(let e):
+                let code: Error::Error.Code
+                switch e {
+                case .notFound: code = .ENOENT
+                case .exists: code = .EEXIST
+                case .isDirectory: code = .EISDIR
+                case .notDirectory: code = .ENOTDIR
+                case .notEmpty: code = .ENOTEMPTY
+                case .loop: code = .ELOOP
+                case .crossDevice: code = .EXDEV
+                case .nameTooLong: code = .ENAMETOOLONG
+                }
+                throw .platform(Error::Error(code: code))
             case .platform(let e): throw .platform(e)
             }
         }
