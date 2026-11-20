@@ -1,11 +1,13 @@
-public import ISO_9945_Loader
+#if Loader
+    public import ISO_9945_Loader
 
-extension POSIX {
+    extension POSIX {
 
-    public enum Loader: Sendable {}
-}
+        public enum Loader: Sendable {}
+    }
 
-extension POSIX.Loader {
+    extension POSIX.Loader {
 
-    public typealias Error = ISO_9945.Loader.Error
-}
+        public typealias Error = ISO_9945.Loader.Error
+    }
+#endif

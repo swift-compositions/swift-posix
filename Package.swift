@@ -47,6 +47,9 @@ let package = Package(
             targets: ["POSIX Test Support"]
         ),
     ],
+    traits: [
+        .trait(name: "Loader", description: "Dynamic library loader (dlopen/dlsym)")
+    ],
     dependencies: [
         .package(
             url: "https://github.com/swift-atoms/swift-error.git",
@@ -69,9 +72,12 @@ let package = Package(
             url: "https://github.com/swift-atoms/swift-either.git",
             branch: "main"
         ),
-        .package(url: "https://github.com/swift-iso/swift-iso-9945.git", branch: "main"),
+        .package(
+            url: "https://github.com/swift-iso/swift-iso-9945.git",
+            branch: "main",
+            traits: [.trait(name: "Loader", condition: .when(traits: ["Loader"]))]
+        ),
         .package(url: "https://github.com/swift-atoms/swift-memory.git", branch: "main", traits: ["Lock", "Map", "Shared"]),
-        .package(url: "https://github.com/swift-atoms/swift-parser.git", branch: "main", traits: ["Map", "IteratorLeaves", "Product", "Skip", "Append", "Either", "Iterator"]),
     ],
     targets: [
 
@@ -274,8 +280,8 @@ let package = Package(
             dependencies: [
                 .target(name: "POSIX Core"),
                 .product(name: "ISO 9945 Core", package: "swift-iso-9945"),
-                .product(name: "ISO 9945 Loader", package: "swift-iso-9945"),
-                .product(name: "Loader Vocabulary", package: "swift-loader-vocabulary"),
+                .product(name: "ISO 9945 Loader", package: "swift-iso-9945", condition: .when(traits: ["Loader"])),
+                .product(name: "Loader Vocabulary", package: "swift-loader-vocabulary", condition: .when(traits: ["Loader"])),
             ]
         ),
 
