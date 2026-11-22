@@ -7,7 +7,7 @@ extension POSIX.Kernel.Group {
 
 extension POSIX.Kernel.Group.Database {
 
-    public typealias Entry = ISO_9945.Kernel.Group.Database.Entry
+    public typealias Entry = ISO.`9945`.Kernel.Group.Database.Entry
 }
 
 extension POSIX.Kernel.Group.Database {
@@ -15,14 +15,14 @@ extension POSIX.Kernel.Group.Database {
     @inlinable
     public static func find(
         name: String
-    ) throws(ISO_9945.Kernel.Group.Database.Error) -> ISO_9945.Kernel.Group.Database.Entry? {
-        try ISO_9945.Kernel.Group.Database.find(name: name)
+    ) throws(ISO.`9945`.Kernel.Group.Database.Error) -> ISO.`9945`.Kernel.Group.Database.Entry? {
+        try ISO.`9945`.Kernel.Group.Database.find(name: name)
     }
 
     @inlinable
     public static func find(
-        gid: ISO_9945.Kernel.Group.ID
-    ) throws(ISO_9945.Kernel.Group.Database.Error) -> ISO_9945.Kernel.Group.Database.Entry? {
-        try ISO_9945.Kernel.Group.Database.find(gid: gid)
+        gid: ISO.`9945`.Kernel.Group.ID
+    ) throws(ISO.`9945`.Kernel.Group.Database.Error) -> ISO.`9945`.Kernel.Group.Database.Entry? {
+        try ISO.`9945`.Kernel.Group.Database.find(gid: gid)
     }
 }

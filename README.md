@@ -1,6 +1,6 @@
 # swift-posix
 
-Use this package when you make POSIX system calls from Swift and want calls that a signal interrupts to be finished for you. Start from `POSIX.Kernel`, through the `POSIX Kernel` product or one of its per-area products such as `POSIX Kernel File` or `POSIX Kernel Socket`. For dynamic library loading, start from `POSIX.Loader.Library`. If you want every call made exactly once, with `EINTR` handed back to you, use the `ISO_9945.Kernel` types from swift-iso-9945 directly.
+Use this package when you make POSIX system calls from Swift and want calls that a signal interrupts to be finished for you. Start from `POSIX.Kernel`, through the `POSIX Kernel` product or one of its per-area products such as `POSIX Kernel File` or `POSIX Kernel Socket`. For dynamic library loading, start from `POSIX.Loader.Library`. If you want every call made exactly once, with `EINTR` handed back to you, use the `` ISO.`9945`.Kernel `` types from swift-iso-9945 directly.
 
 ## Laws
 
@@ -10,7 +10,7 @@ Use this package when you make POSIX system calls from Swift and want calls that
 - `POSIX.Kernel.Socket.Connect.connect(_:address:length:)` never reissues an interrupted `connect`. It waits with no timeout until the socket is writable, then throws the socket's pending error if there is one. `POSIX.Kernel.Socket.Connect.start(_:address:length:)` reports `pending` both when the connection is still in progress and when the call was interrupted, and `POSIX.Kernel.Socket.Connect.finish(_:)` throws the socket's pending error.
 - `POSIX.Kernel.IO.Write.writeAll(_:from:)` keeps writing until the whole buffer is written. A write that accepts 0 bytes fails with `EIO`.
 - `POSIX.Kernel.IO.Read.readAll(_:into:)` stops at end of file and returns how many bytes it read, which can be fewer than the buffer holds.
-- `ISO_9945.Kernel.File.Handle.writeAll(from:)` does not retry. An interrupted write throws the interrupt on the right of the `Either`, and the bytes written before it stay written.
+- `` ISO.`9945`.Kernel.File.Handle.writeAll(from:) `` does not retry. An interrupted write throws the interrupt on the right of the `Either`, and the bytes written before it stay written.
 - `POSIX.Kernel.File.Flush.directory(path:)` opens the directory read only with close on exec and flushes it. Any path error from opening it is reported as `ENOENT`.
 - `Glob.match(pattern:in:options:)` yields paths that start with the given directory, joined with a single `/`. An empty pattern yields the directory itself.
 - Glob results come in directory order unless the ordering option is `deterministic`, which sorts them. With include and exclude patterns, the result is every path any include pattern matches, without duplicates, minus every path any exclude pattern matches.

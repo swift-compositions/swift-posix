@@ -15,17 +15,17 @@
 
     extension POSIX.Kernel.Termios.Attributes {
 
-        public typealias Storage = ISO_9945.Kernel.Termios.Attributes.Storage
+        public typealias Storage = ISO.`9945`.Kernel.Termios.Attributes.Storage
 
-        public typealias Action = ISO_9945.Kernel.Termios.Attributes.Action
+        public typealias Action = ISO.`9945`.Kernel.Termios.Attributes.Action
     }
 
     extension POSIX.Kernel.Termios.Attributes {
 
         public static func get(
             _ descriptor: borrowing POSIX.Kernel.Descriptor
-        ) throws(Error::Error) -> ISO_9945.Kernel.Termios.Attributes {
-            try ISO_9945.Kernel.Termios.Attributes.get(descriptor)
+        ) throws(Error::Error) -> ISO.`9945`.Kernel.Termios.Attributes {
+            try ISO.`9945`.Kernel.Termios.Attributes.get(descriptor)
         }
     }
 

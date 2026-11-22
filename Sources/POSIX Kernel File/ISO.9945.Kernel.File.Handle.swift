@@ -1,7 +1,7 @@
 internal import Either
 internal import ISO_9945_Kernel_File
 
-extension ISO_9945.Kernel.File.Handle {
+extension ISO.`9945`.Kernel.File.Handle {
 
     @inlinable
     public borrowing func writeAll(
@@ -20,8 +20,8 @@ extension ISO_9945.Kernel.File.Handle {
                 count: total - written
             )
             let n: Int
-            do throws(ISO_9945.Kernel.IO.Write.Error) {
-                n = try unsafe ISO_9945.Kernel.IO.Write.write(descriptor, from: remaining)
+            do throws(ISO.`9945`.Kernel.IO.Write.Error) {
+                n = try unsafe ISO.`9945`.Kernel.IO.Write.write(descriptor, from: remaining)
             } catch {
                 if error.code.isInterrupted {
                     throw .right(.occurred)
@@ -32,7 +32,7 @@ extension ISO_9945.Kernel.File.Handle {
 
                 throw .left(
                     Self.Error(
-                        from: ISO_9945.Kernel.IO.Write.Error.platform(
+                        from: ISO.`9945`.Kernel.IO.Write.Error.platform(
                             Error::Error(code: .EIO)
                         ),
                         operation: .write
@@ -44,7 +44,7 @@ extension ISO_9945.Kernel.File.Handle {
     }
 }
 
-extension ISO_9945.Kernel.File.Handle {
+extension ISO.`9945`.Kernel.File.Handle {
 
     @inlinable
     public borrowing func writeAll(

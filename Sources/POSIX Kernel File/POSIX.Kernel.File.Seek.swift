@@ -7,9 +7,9 @@ extension POSIX.Kernel.File {
 
 extension POSIX.Kernel.File.Seek {
 
-    public typealias Error = ISO_9945.Kernel.File.Seek.Error
+    public typealias Error = ISO.`9945`.Kernel.File.Seek.Error
 
-    public typealias Whence = ISO_9945.Kernel.File.Seek.Whence
+    public typealias Whence = ISO.`9945`.Kernel.File.Seek.Whence
 }
 
 extension POSIX.Kernel.File.Seek {
@@ -17,17 +17,17 @@ extension POSIX.Kernel.File.Seek {
     @discardableResult
     @inlinable
     public static func seek(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
         offset: Int64,
-        whence: ISO_9945.Kernel.File.Seek.Whence
-    ) throws(ISO_9945.Kernel.File.Seek.Error) -> Int64 {
-        try ISO_9945.Kernel.File.Seek.seek(descriptor, offset: offset, whence: whence)
+        whence: ISO.`9945`.Kernel.File.Seek.Whence
+    ) throws(ISO.`9945`.Kernel.File.Seek.Error) -> Int64 {
+        try ISO.`9945`.Kernel.File.Seek.seek(descriptor, offset: offset, whence: whence)
     }
 
     @inlinable
     public static func tell(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
-    ) throws(ISO_9945.Kernel.File.Seek.Error) -> Int64 {
-        try ISO_9945.Kernel.File.Seek.tell(descriptor)
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor
+    ) throws(ISO.`9945`.Kernel.File.Seek.Error) -> Int64 {
+        try ISO.`9945`.Kernel.File.Seek.tell(descriptor)
     }
 }

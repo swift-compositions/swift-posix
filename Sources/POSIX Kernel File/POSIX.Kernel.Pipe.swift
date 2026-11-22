@@ -7,18 +7,18 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Pipe {
 
-    public typealias Descriptors = ISO_9945.Kernel.Pipe.Descriptors
+    public typealias Descriptors = ISO.`9945`.Kernel.Pipe.Descriptors
 
-    public typealias Error = ISO_9945.Kernel.Pipe.Error
+    public typealias Error = ISO.`9945`.Kernel.Pipe.Error
 }
 
 extension POSIX.Kernel.Pipe {
 
     @inlinable
-    public static func pipe() throws(ISO_9945.Kernel.Pipe.Error) -> ISO_9945.Kernel.Pipe.Descriptors {
+    public static func pipe() throws(ISO.`9945`.Kernel.Pipe.Error) -> ISO.`9945`.Kernel.Pipe.Descriptors {
         while true {
-            do throws(ISO_9945.Kernel.Pipe.Error) {
-                return try ISO_9945.Kernel.Pipe.pipe()
+            do throws(ISO.`9945`.Kernel.Pipe.Error) {
+                return try ISO.`9945`.Kernel.Pipe.pipe()
             } catch  where error.code.isInterrupted {
                 continue
             }

@@ -16,7 +16,7 @@
     extension POSIX.Kernel.TTY {
 
         public static func isTTY(_ descriptor: borrowing POSIX.Kernel.Descriptor) -> Bool {
-            ISO_9945.Kernel.TTY.isTTY(descriptor)
+            ISO.`9945`.Kernel.TTY.isTTY(descriptor)
         }
     }
 
@@ -24,8 +24,8 @@
 
         public static func query(
             _ descriptor: borrowing POSIX.Kernel.Descriptor
-        ) throws(Error::Error) -> ISO_9945.Kernel.TTY.Size {
-            try ISO_9945.Kernel.TTY.Size.query(descriptor)
+        ) throws(Error::Error) -> ISO.`9945`.Kernel.TTY.Size {
+            try ISO.`9945`.Kernel.TTY.Size.query(descriptor)
         }
     }
 

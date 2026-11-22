@@ -7,7 +7,7 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Link {
 
-    public typealias Error = ISO_9945.Kernel.Link.Error
+    public typealias Error = ISO.`9945`.Kernel.Link.Error
 }
 
 extension POSIX.Kernel.Link {
@@ -16,12 +16,12 @@ extension POSIX.Kernel.Link {
     public static func create(
         at linkPath: borrowing Path.Borrowed,
         to existingPath: borrowing Path.Borrowed
-    ) throws(ISO_9945.Kernel.Link.Error) {
-        try ISO_9945.Kernel.Link.create(at: linkPath, to: existingPath)
+    ) throws(ISO.`9945`.Kernel.Link.Error) {
+        try ISO.`9945`.Kernel.Link.create(at: linkPath, to: existingPath)
     }
 }
 
 extension POSIX.Kernel.Link {
 
-    public typealias Count = ISO_9945.Kernel.Link.Count
+    public typealias Count = ISO.`9945`.Kernel.Link.Count
 }

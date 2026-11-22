@@ -8,12 +8,12 @@ extension POSIX.Kernel.Group {
 extension POSIX.Kernel.Group.Effective {
 
     @inlinable
-    public static func id() -> ISO_9945.Kernel.Group.ID {
-        ISO_9945.Kernel.Group.Effective.id()
+    public static func id() -> ISO.`9945`.Kernel.Group.ID {
+        ISO.`9945`.Kernel.Group.Effective.id()
     }
 
     @inlinable
-    public static func set(_ gid: ISO_9945.Kernel.Group.ID) throws(Error::Error) {
-        try ISO_9945.Kernel.Group.Effective.set(gid)
+    public static func set(_ gid: ISO.`9945`.Kernel.Group.ID) throws(Error::Error) {
+        try ISO.`9945`.Kernel.Group.Effective.set(gid)
     }
 }

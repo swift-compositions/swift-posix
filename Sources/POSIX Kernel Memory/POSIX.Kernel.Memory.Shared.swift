@@ -22,8 +22,8 @@ extension POSIX.Kernel.Memory.Shared {
         name: UnsafePointer<CChar>,
         access: Memory.Shared.Access,
         options: Memory.Shared.Options = [],
-        permissions: ISO_9945.Kernel.File.Permissions = .ownerReadWrite
-    ) throws(Memory.Shared.Error) -> ISO_9945.Kernel.Descriptor {
+        permissions: ISO.`9945`.Kernel.File.Permissions = .ownerReadWrite
+    ) throws(Memory.Shared.Error) -> ISO.`9945`.Kernel.Descriptor {
         try unsafe Memory.Shared.open(
             name: name,
             access: access,

@@ -8,13 +8,13 @@ extension POSIX.Kernel.Socket {
 extension POSIX.Kernel.Socket.Send {
 
     public static func send(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
         from span: Swift.Span<Byte>,
-        options: ISO_9945.Kernel.Socket.Message.Options = []
-    ) throws(ISO_9945.Kernel.Socket.Error) -> Int {
+        options: ISO.`9945`.Kernel.Socket.Message.Options = []
+    ) throws(ISO.`9945`.Kernel.Socket.Error) -> Int {
         while true {
-            do throws(ISO_9945.Kernel.Socket.Error) {
-                return try ISO_9945.Kernel.Socket.Send.send(
+            do throws(ISO.`9945`.Kernel.Socket.Error) {
+                return try ISO.`9945`.Kernel.Socket.Send.send(
                     descriptor,
                     from: span,
                     options: options
@@ -26,15 +26,15 @@ extension POSIX.Kernel.Socket.Send {
     }
 
     public static func to(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
         from span: Swift.Span<Byte>,
-        options: ISO_9945.Kernel.Socket.Message.Options = [],
-        address: ISO_9945.Kernel.Socket.Address.Storage,
-        addressLength: ISO_9945.Kernel.Socket.Address.Length
-    ) throws(ISO_9945.Kernel.Socket.Error) -> Int {
+        options: ISO.`9945`.Kernel.Socket.Message.Options = [],
+        address: ISO.`9945`.Kernel.Socket.Address.Storage,
+        addressLength: ISO.`9945`.Kernel.Socket.Address.Length
+    ) throws(ISO.`9945`.Kernel.Socket.Error) -> Int {
         while true {
-            do throws(ISO_9945.Kernel.Socket.Error) {
-                return try ISO_9945.Kernel.Socket.Send.to(
+            do throws(ISO.`9945`.Kernel.Socket.Error) {
+                return try ISO.`9945`.Kernel.Socket.Send.to(
                     descriptor,
                     from: span,
                     options: options,
@@ -48,13 +48,13 @@ extension POSIX.Kernel.Socket.Send {
     }
 
     public static func message(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
-        header: inout ISO_9945.Kernel.Socket.Message.Header,
-        options: ISO_9945.Kernel.Socket.Message.Options = []
-    ) throws(ISO_9945.Kernel.Socket.Error) -> Int {
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
+        header: inout ISO.`9945`.Kernel.Socket.Message.Header,
+        options: ISO.`9945`.Kernel.Socket.Message.Options = []
+    ) throws(ISO.`9945`.Kernel.Socket.Error) -> Int {
         while true {
-            do throws(ISO_9945.Kernel.Socket.Error) {
-                return try ISO_9945.Kernel.Socket.Send.message(
+            do throws(ISO.`9945`.Kernel.Socket.Error) {
+                return try ISO.`9945`.Kernel.Socket.Send.message(
                     descriptor,
                     header: &header,
                     options: options

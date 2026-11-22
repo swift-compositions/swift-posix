@@ -7,21 +7,21 @@ extension POSIX.Kernel.Signal {
 
 extension POSIX.Kernel.Signal.Mask {
 
-    public typealias How = ISO_9945.Kernel.Signal.Mask.How
+    public typealias How = ISO.`9945`.Kernel.Signal.Mask.How
 }
 
 extension POSIX.Kernel.Signal.Mask {
 
     @inlinable
     public static func change(
-        _ how: ISO_9945.Kernel.Signal.Mask.How,
-        signals: ISO_9945.Kernel.Signal.Set
-    ) throws(ISO_9945.Kernel.Signal.Error) -> ISO_9945.Kernel.Signal.Set {
-        try ISO_9945.Kernel.Signal.Mask.change(how, signals: signals)
+        _ how: ISO.`9945`.Kernel.Signal.Mask.How,
+        signals: ISO.`9945`.Kernel.Signal.Set
+    ) throws(ISO.`9945`.Kernel.Signal.Error) -> ISO.`9945`.Kernel.Signal.Set {
+        try ISO.`9945`.Kernel.Signal.Mask.change(how, signals: signals)
     }
 
     @inlinable
-    public static func pending() throws(ISO_9945.Kernel.Signal.Error) -> ISO_9945.Kernel.Signal.Set {
-        try ISO_9945.Kernel.Signal.Mask.pending()
+    public static func pending() throws(ISO.`9945`.Kernel.Signal.Error) -> ISO.`9945`.Kernel.Signal.Set {
+        try ISO.`9945`.Kernel.Signal.Mask.pending()
     }
 }

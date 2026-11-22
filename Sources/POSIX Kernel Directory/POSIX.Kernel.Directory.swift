@@ -7,7 +7,7 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Directory {
 
-    public typealias Error = ISO_9945.Kernel.Directory.Error
+    public typealias Error = ISO.`9945`.Kernel.Directory.Error
 }
 
 extension POSIX.Kernel.Directory {
@@ -16,10 +16,10 @@ extension POSIX.Kernel.Directory {
     @inlinable
     public static func open(
         at path: UnsafePointer<Path.Char>
-    ) throws(ISO_9945.Kernel.Directory.Error) -> ISO_9945.Kernel.Directory.Stream {
+    ) throws(ISO.`9945`.Kernel.Directory.Error) -> ISO.`9945`.Kernel.Directory.Stream {
         while true {
-            do throws(ISO_9945.Kernel.Directory.Error) {
-                return try unsafe ISO_9945.Kernel.Directory.open(at: path)
+            do throws(ISO.`9945`.Kernel.Directory.Error) {
+                return try unsafe ISO.`9945`.Kernel.Directory.open(at: path)
             } catch {
 
                 if case .platform(let primitiveError) = error,
@@ -35,10 +35,10 @@ extension POSIX.Kernel.Directory {
     @inlinable
     public static func open(
         at path: borrowing Path.Borrowed
-    ) throws(ISO_9945.Kernel.Directory.Error) -> ISO_9945.Kernel.Directory.Stream {
+    ) throws(ISO.`9945`.Kernel.Directory.Error) -> ISO.`9945`.Kernel.Directory.Stream {
         while true {
-            do throws(ISO_9945.Kernel.Directory.Error) {
-                return try ISO_9945.Kernel.Directory.open(at: path)
+            do throws(ISO.`9945`.Kernel.Directory.Error) {
+                return try ISO.`9945`.Kernel.Directory.open(at: path)
             } catch {
                 if case .platform(let primitiveError) = error,
                     primitiveError.code.isInterrupted
@@ -53,10 +53,10 @@ extension POSIX.Kernel.Directory {
 
 extension POSIX.Kernel.Directory {
 
-    public typealias Entry = ISO_9945.Kernel.Directory.Entry
+    public typealias Entry = ISO.`9945`.Kernel.Directory.Entry
 }
 
 extension POSIX.Kernel.Directory {
 
-    public typealias Stream = ISO_9945.Kernel.Directory.Stream
+    public typealias Stream = ISO.`9945`.Kernel.Directory.Stream
 }

@@ -7,19 +7,19 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Environment {
 
-    public typealias Error = ISO_9945.Kernel.Environment.Error
+    public typealias Error = ISO.`9945`.Kernel.Environment.Error
 
-    public typealias Entry = ISO_9945.Kernel.Environment.Entry
+    public typealias Entry = ISO.`9945`.Kernel.Environment.Entry
 
-    public typealias Entries = ISO_9945.Kernel.Environment.Entries
+    public typealias Entries = ISO.`9945`.Kernel.Environment.Entries
 }
 
 extension POSIX.Kernel.Environment {
 
     @inlinable
     @_lifetime(immortal)
-    public static func entries() -> ISO_9945.Kernel.Environment.Entries {
-        ISO_9945.Kernel.Environment.entries()
+    public static func entries() -> ISO.`9945`.Kernel.Environment.Entries {
+        ISO.`9945`.Kernel.Environment.entries()
     }
 
     @inlinable
@@ -27,7 +27,7 @@ extension POSIX.Kernel.Environment {
         _ name: UnsafePointer<String.Char>,
         _ body: (Swift.Span<String.Char>) -> R
     ) -> R? {
-        unsafe ISO_9945.Kernel.Environment.withValueBytes(name, body)
+        unsafe ISO.`9945`.Kernel.Environment.withValueBytes(name, body)
     }
 
     @inlinable
@@ -35,12 +35,12 @@ extension POSIX.Kernel.Environment {
         _ name: UnsafePointer<String.Char>,
         _ body: (borrowing String.Borrowed) -> R
     ) -> R? {
-        unsafe ISO_9945.Kernel.Environment.withValue(name, body)
+        unsafe ISO.`9945`.Kernel.Environment.withValue(name, body)
     }
 
     @inlinable
     public static func get(_ name: UnsafePointer<String.Char>) -> String? {
-        unsafe ISO_9945.Kernel.Environment.get(name)
+        unsafe ISO.`9945`.Kernel.Environment.get(name)
     }
 
     @inlinable
@@ -48,14 +48,14 @@ extension POSIX.Kernel.Environment {
         _ name: UnsafePointer<String.Char>,
         to value: UnsafePointer<String.Char>,
         overwrite: Bool = true
-    ) throws(ISO_9945.Kernel.Environment.Error) {
-        try unsafe ISO_9945.Kernel.Environment.set(name, to: value, overwrite: overwrite)
+    ) throws(ISO.`9945`.Kernel.Environment.Error) {
+        try unsafe ISO.`9945`.Kernel.Environment.set(name, to: value, overwrite: overwrite)
     }
 
     @inlinable
     public static func unset(
         _ name: UnsafePointer<String.Char>
-    ) throws(ISO_9945.Kernel.Environment.Error) {
-        try unsafe ISO_9945.Kernel.Environment.unset(name)
+    ) throws(ISO.`9945`.Kernel.Environment.Error) {
+        try unsafe ISO.`9945`.Kernel.Environment.unset(name)
     }
 }

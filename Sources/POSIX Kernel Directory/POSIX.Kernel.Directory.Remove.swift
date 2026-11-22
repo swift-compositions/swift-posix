@@ -7,7 +7,7 @@ extension POSIX.Kernel.Directory {
 
 extension POSIX.Kernel.Directory.Remove {
 
-    public typealias Error = ISO_9945.Kernel.Directory.Remove.Error
+    public typealias Error = ISO.`9945`.Kernel.Directory.Remove.Error
 }
 
 extension POSIX.Kernel.Directory.Remove {
@@ -15,7 +15,7 @@ extension POSIX.Kernel.Directory.Remove {
     @inlinable
     public static func remove(
         _ path: borrowing Path.Borrowed
-    ) throws(ISO_9945.Kernel.Directory.Remove.Error) {
-        try ISO_9945.Kernel.Directory.Remove.remove(path)
+    ) throws(ISO.`9945`.Kernel.Directory.Remove.Error) {
+        try ISO.`9945`.Kernel.Directory.Remove.remove(path)
     }
 }

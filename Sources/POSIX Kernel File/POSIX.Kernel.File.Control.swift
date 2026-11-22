@@ -7,22 +7,22 @@ extension POSIX.Kernel.File {
 
 extension POSIX.Kernel.File.Control {
 
-    public typealias Error = ISO_9945.Kernel.File.Control.Error
+    public typealias Error = ISO.`9945`.Kernel.File.Control.Error
 }
 
 extension POSIX.Kernel.File.Control {
 
     @inlinable
     public static func setNonBlocking(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
-    ) throws(ISO_9945.Kernel.File.Control.Error) {
-        try ISO_9945.Kernel.File.Control.setNonBlocking(descriptor)
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor
+    ) throws(ISO.`9945`.Kernel.File.Control.Error) {
+        try ISO.`9945`.Kernel.File.Control.setNonBlocking(descriptor)
     }
 
     @inlinable
     public static func setBlocking(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
-    ) throws(ISO_9945.Kernel.File.Control.Error) {
-        try ISO_9945.Kernel.File.Control.setBlocking(descriptor)
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor
+    ) throws(ISO.`9945`.Kernel.File.Control.Error) {
+        try ISO.`9945`.Kernel.File.Control.setBlocking(descriptor)
     }
 }

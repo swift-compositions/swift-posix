@@ -8,8 +8,8 @@ extension POSIX.Kernel {
 extension POSIX.Kernel.Close {
 
     public static func close(_ descriptor: consuming POSIX.Kernel.Descriptor) throws(Error) {
-        do throws(ISO_9945.Kernel.Close.Error) {
-            try ISO_9945.Kernel.Close.close(descriptor)
+        do throws(ISO.`9945`.Kernel.Close.Error) {
+            try ISO.`9945`.Kernel.Close.close(descriptor)
         } catch {
             switch error {
             case .handle(let e):

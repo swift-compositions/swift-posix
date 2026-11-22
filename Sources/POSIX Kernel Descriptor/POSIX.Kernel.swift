@@ -2,5 +2,5 @@
 
 extension POSIX.Kernel {
 
-    public typealias Descriptor = ISO_9945.Kernel.Descriptor
+    public typealias Descriptor = ISO.`9945`.Kernel.Descriptor
 }

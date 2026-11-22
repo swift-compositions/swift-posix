@@ -8,17 +8,17 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Lock {
 
-    public typealias Error = ISO_9945.Kernel.Lock.Error
+    public typealias Error = ISO.`9945`.Kernel.Lock.Error
 
-    public typealias Range = ISO_9945.Kernel.Lock.Range
+    public typealias Range = ISO.`9945`.Kernel.Lock.Range
 
-    public typealias Kind = ISO_9945.Kernel.Lock.Kind
+    public typealias Kind = ISO.`9945`.Kernel.Lock.Kind
 
-    public typealias Acquire = ISO_9945.Kernel.Lock.Acquire
+    public typealias Acquire = ISO.`9945`.Kernel.Lock.Acquire
 
-    public typealias Token = ISO_9945.Kernel.Lock.Token
+    public typealias Token = ISO.`9945`.Kernel.Lock.Token
 
-    public typealias Scope = ISO_9945.Kernel.Lock.Scope
+    public typealias Scope = ISO.`9945`.Kernel.Lock.Scope
 
 }
 
@@ -29,14 +29,14 @@ extension POSIX.Kernel.Lock {
         range: Range,
         kind: Kind
     ) throws(Error) {
-        try ISO_9945.Kernel.Lock.lock(descriptor, range: range, kind: kind)
+        try ISO.`9945`.Kernel.Lock.lock(descriptor, range: range, kind: kind)
     }
 
     public static func unlock(
         _ descriptor: borrowing POSIX.Kernel.Descriptor,
         range: Range
     ) throws(Error) {
-        try ISO_9945.Kernel.Lock.unlock(descriptor, range: range)
+        try ISO.`9945`.Kernel.Lock.unlock(descriptor, range: range)
     }
 }
 
@@ -47,6 +47,6 @@ extension POSIX.Kernel.Lock.Immediate {
         range: POSIX.Kernel.Lock.Range,
         kind: POSIX.Kernel.Lock.Kind
     ) throws(POSIX.Kernel.Lock.Error) {
-        try ISO_9945.Kernel.Lock.Immediate.lock(descriptor, range: range, kind: kind)
+        try ISO.`9945`.Kernel.Lock.Immediate.lock(descriptor, range: range, kind: kind)
     }
 }

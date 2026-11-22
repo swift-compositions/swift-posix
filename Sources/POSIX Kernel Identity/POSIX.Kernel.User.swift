@@ -7,5 +7,5 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.User {
 
-    public typealias ID = ISO_9945.Kernel.User.ID
+    public typealias ID = ISO.`9945`.Kernel.User.ID
 }

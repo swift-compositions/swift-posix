@@ -33,8 +33,8 @@ extension POSIX.Kernel.Memory.Map {
         length: Memory.Address.Count,
         protection: Memory.Map.Protection,
         flags: Memory.Map.Options,
-        descriptor: borrowing ISO_9945.Kernel.Descriptor = .invalid,
-        offset: ISO_9945.Kernel.File.Offset = .zero
+        descriptor: borrowing ISO.`9945`.Kernel.Descriptor = .invalid,
+        offset: ISO.`9945`.Kernel.File.Offset = .zero
     ) throws(Memory.Map.Error) -> Memory.Address {
         try Memory.Map.map(
             addr: addr,

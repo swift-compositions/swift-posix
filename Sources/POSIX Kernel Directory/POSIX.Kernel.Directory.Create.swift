@@ -7,7 +7,7 @@ extension POSIX.Kernel.Directory {
 
 extension POSIX.Kernel.Directory.Create {
 
-    public typealias Error = ISO_9945.Kernel.Directory.Create.Error
+    public typealias Error = ISO.`9945`.Kernel.Directory.Create.Error
 }
 
 extension POSIX.Kernel.Directory.Create {
@@ -15,22 +15,22 @@ extension POSIX.Kernel.Directory.Create {
     @inlinable
     public static func create(
         _ path: borrowing Path.Borrowed,
-        permissions: ISO_9945.Kernel.File.Permissions = ISO_9945.Kernel.File.Permissions(
+        permissions: ISO.`9945`.Kernel.File.Permissions = ISO.`9945`.Kernel.File.Permissions(
             rawValue: 0o755
         )
-    ) throws(ISO_9945.Kernel.Directory.Create.Error) {
-        try ISO_9945.Kernel.Directory.Create.create(path, permissions: permissions)
+    ) throws(ISO.`9945`.Kernel.Directory.Create.Error) {
+        try ISO.`9945`.Kernel.Directory.Create.create(path, permissions: permissions)
     }
 
     @inlinable
     public static func create(
         _ path: borrowing Path.Borrowed,
-        relativeTo descriptor: borrowing ISO_9945.Kernel.Descriptor,
-        permissions: ISO_9945.Kernel.File.Permissions = ISO_9945.Kernel.File.Permissions(
+        relativeTo descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
+        permissions: ISO.`9945`.Kernel.File.Permissions = ISO.`9945`.Kernel.File.Permissions(
             rawValue: 0o755
         )
-    ) throws(ISO_9945.Kernel.Directory.Create.Error) {
-        try ISO_9945.Kernel.Directory.Create.create(
+    ) throws(ISO.`9945`.Kernel.Directory.Create.Error) {
+        try ISO.`9945`.Kernel.Directory.Create.create(
             path,
             relativeTo: descriptor,
             permissions: permissions

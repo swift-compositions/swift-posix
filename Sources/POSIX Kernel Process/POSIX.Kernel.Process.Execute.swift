@@ -13,7 +13,7 @@ extension POSIX.Kernel.Process.Execute {
         path: UnsafePointer<CChar>,
         argv: UnsafePointer<UnsafePointer<CChar>?>,
         envp: UnsafePointer<UnsafePointer<CChar>?>
-    ) throws(ISO_9945.Kernel.Process.Error) {
-        try unsafe ISO_9945.Kernel.Process.Execute.execve(path: path, argv: argv, envp: envp)
+    ) throws(ISO.`9945`.Kernel.Process.Error) {
+        try unsafe ISO.`9945`.Kernel.Process.Execute.execve(path: path, argv: argv, envp: envp)
     }
 }

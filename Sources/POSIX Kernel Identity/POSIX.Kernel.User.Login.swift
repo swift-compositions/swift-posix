@@ -8,7 +8,7 @@ extension POSIX.Kernel.User {
 extension POSIX.Kernel.User.Login {
 
     @inlinable
-    public static func name() throws(ISO_9945.Kernel.User.Login.Error) -> String? {
-        try ISO_9945.Kernel.User.Login.name()
+    public static func name() throws(ISO.`9945`.Kernel.User.Login.Error) -> String? {
+        try ISO.`9945`.Kernel.User.Login.name()
     }
 }

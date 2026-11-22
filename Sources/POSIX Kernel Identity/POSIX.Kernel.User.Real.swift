@@ -8,12 +8,12 @@ extension POSIX.Kernel.User {
 extension POSIX.Kernel.User.Real {
 
     @inlinable
-    public static func id() -> ISO_9945.Kernel.User.ID {
-        ISO_9945.Kernel.User.Real.id()
+    public static func id() -> ISO.`9945`.Kernel.User.ID {
+        ISO.`9945`.Kernel.User.Real.id()
     }
 
     @inlinable
-    public static func set(_ uid: ISO_9945.Kernel.User.ID) throws(Error::Error) {
-        try ISO_9945.Kernel.User.Real.set(uid)
+    public static func set(_ uid: ISO.`9945`.Kernel.User.ID) throws(Error::Error) {
+        try ISO.`9945`.Kernel.User.Real.set(uid)
     }
 }

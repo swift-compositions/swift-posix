@@ -8,13 +8,13 @@ extension POSIX.Kernel.Socket {
 extension POSIX.Kernel.Socket.Receive {
 
     public static func receive(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
         into span: inout MutableSpan<Byte>,
-        options: ISO_9945.Kernel.Socket.Message.Options = []
-    ) throws(ISO_9945.Kernel.Socket.Error) -> Int {
+        options: ISO.`9945`.Kernel.Socket.Message.Options = []
+    ) throws(ISO.`9945`.Kernel.Socket.Error) -> Int {
         while true {
-            do throws(ISO_9945.Kernel.Socket.Error) {
-                return try ISO_9945.Kernel.Socket.Receive.receive(
+            do throws(ISO.`9945`.Kernel.Socket.Error) {
+                return try ISO.`9945`.Kernel.Socket.Receive.receive(
                     descriptor,
                     into: &span,
                     options: options
@@ -26,16 +26,16 @@ extension POSIX.Kernel.Socket.Receive {
     }
 
     public static func from(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
         into span: inout MutableSpan<Byte>,
-        options: ISO_9945.Kernel.Socket.Message.Options = []
-    ) throws(ISO_9945.Kernel.Socket.Error) -> (
-        count: Int, address: ISO_9945.Kernel.Socket.Address.Storage,
-        addressLength: ISO_9945.Kernel.Socket.Address.Length
+        options: ISO.`9945`.Kernel.Socket.Message.Options = []
+    ) throws(ISO.`9945`.Kernel.Socket.Error) -> (
+        count: Int, address: ISO.`9945`.Kernel.Socket.Address.Storage,
+        addressLength: ISO.`9945`.Kernel.Socket.Address.Length
     ) {
         while true {
-            do throws(ISO_9945.Kernel.Socket.Error) {
-                return try ISO_9945.Kernel.Socket.Receive.from(
+            do throws(ISO.`9945`.Kernel.Socket.Error) {
+                return try ISO.`9945`.Kernel.Socket.Receive.from(
                     descriptor,
                     into: &span,
                     options: options
@@ -47,13 +47,13 @@ extension POSIX.Kernel.Socket.Receive {
     }
 
     public static func message(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor,
-        header: inout ISO_9945.Kernel.Socket.Message.Header,
-        options: ISO_9945.Kernel.Socket.Message.Options = []
-    ) throws(ISO_9945.Kernel.Socket.Error) -> Int {
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor,
+        header: inout ISO.`9945`.Kernel.Socket.Message.Header,
+        options: ISO.`9945`.Kernel.Socket.Message.Options = []
+    ) throws(ISO.`9945`.Kernel.Socket.Error) -> Int {
         while true {
-            do throws(ISO_9945.Kernel.Socket.Error) {
-                return try ISO_9945.Kernel.Socket.Receive.message(
+            do throws(ISO.`9945`.Kernel.Socket.Error) {
+                return try ISO.`9945`.Kernel.Socket.Receive.message(
                     descriptor,
                     header: &header,
                     options: options

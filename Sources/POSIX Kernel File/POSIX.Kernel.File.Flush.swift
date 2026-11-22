@@ -8,18 +8,18 @@ extension POSIX.Kernel.File {
 
 extension POSIX.Kernel.File.Flush {
 
-    public typealias Error = ISO_9945.Kernel.File.Flush.Error
+    public typealias Error = ISO.`9945`.Kernel.File.Flush.Error
 }
 
 extension POSIX.Kernel.File.Flush {
 
     @inlinable
     public static func flush(
-        _ descriptor: borrowing ISO_9945.Kernel.Descriptor
-    ) throws(ISO_9945.Kernel.File.Flush.Error) {
+        _ descriptor: borrowing ISO.`9945`.Kernel.Descriptor
+    ) throws(ISO.`9945`.Kernel.File.Flush.Error) {
         while true {
-            do throws(ISO_9945.Kernel.File.Flush.Error) {
-                try ISO_9945.Kernel.File.Flush.fsync(descriptor)
+            do throws(ISO.`9945`.Kernel.File.Flush.Error) {
+                try ISO.`9945`.Kernel.File.Flush.fsync(descriptor)
                 return
             } catch  where error.code.isInterrupted {
                 continue
@@ -33,9 +33,9 @@ extension POSIX.Kernel.File.Flush {
     @inlinable
     public static func directory(
         path: borrowing Path.Borrowed
-    ) throws(ISO_9945.Kernel.File.Flush.Error) {
-        let fd: ISO_9945.Kernel.Descriptor
-        do throws(ISO_9945.Kernel.File.Open.Error) {
+    ) throws(ISO.`9945`.Kernel.File.Flush.Error) {
+        let fd: ISO.`9945`.Kernel.Descriptor
+        do throws(ISO.`9945`.Kernel.File.Open.Error) {
             fd = try _openForDirectoryFlush(path: path)
         } catch {
 
@@ -64,10 +64,10 @@ extension POSIX.Kernel.File.Flush {
     @inlinable
     package static func _openForDirectoryFlush(
         path: borrowing Path.Borrowed
-    ) throws(ISO_9945.Kernel.File.Open.Error) -> ISO_9945.Kernel.Descriptor {
+    ) throws(ISO.`9945`.Kernel.File.Open.Error) -> ISO.`9945`.Kernel.Descriptor {
         while true {
-            do throws(ISO_9945.Kernel.File.Open.Error) {
-                return try ISO_9945.Kernel.File.Open.open(
+            do throws(ISO.`9945`.Kernel.File.Open.Error) {
+                return try ISO.`9945`.Kernel.File.Open.open(
                     path: path,
                     mode: .read,
                     options: [.execClose],

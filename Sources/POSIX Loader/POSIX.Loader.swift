@@ -8,6 +8,6 @@
 
     extension POSIX.Loader {
 
-        public typealias Error = ISO_9945.Loader.Error
+        public typealias Error = ISO.`9945`.Loader.Error
     }
 #endif

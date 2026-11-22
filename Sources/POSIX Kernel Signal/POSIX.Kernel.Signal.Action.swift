@@ -7,11 +7,11 @@ extension POSIX.Kernel.Signal {
 
 extension POSIX.Kernel.Signal.Action {
 
-    public typealias Configuration = ISO_9945.Kernel.Signal.Action.Configuration
+    public typealias Configuration = ISO.`9945`.Kernel.Signal.Action.Configuration
 
-    public typealias Handler = ISO_9945.Kernel.Signal.Action.Handler
+    public typealias Handler = ISO.`9945`.Kernel.Signal.Action.Handler
 
-    public typealias Options = ISO_9945.Kernel.Signal.Action.Options
+    public typealias Options = ISO.`9945`.Kernel.Signal.Action.Options
 }
 
 extension POSIX.Kernel.Signal.Action {
@@ -20,17 +20,17 @@ extension POSIX.Kernel.Signal.Action {
     @unsafe
     @inlinable
     public static func set(
-        signal: ISO_9945.Kernel.Signal.Number,
-        _ configuration: ISO_9945.Kernel.Signal.Action.Configuration
-    ) throws(ISO_9945.Kernel.Signal.Error) -> ISO_9945.Kernel.Signal.Action.Configuration {
-        try unsafe ISO_9945.Kernel.Signal.Action.set(signal: signal, configuration)
+        signal: ISO.`9945`.Kernel.Signal.Number,
+        _ configuration: ISO.`9945`.Kernel.Signal.Action.Configuration
+    ) throws(ISO.`9945`.Kernel.Signal.Error) -> ISO.`9945`.Kernel.Signal.Action.Configuration {
+        try unsafe ISO.`9945`.Kernel.Signal.Action.set(signal: signal, configuration)
     }
 
     @unsafe
     @inlinable
     public static func get(
-        signal: ISO_9945.Kernel.Signal.Number
-    ) throws(ISO_9945.Kernel.Signal.Error) -> ISO_9945.Kernel.Signal.Action.Configuration {
-        try unsafe ISO_9945.Kernel.Signal.Action.get(signal: signal)
+        signal: ISO.`9945`.Kernel.Signal.Number
+    ) throws(ISO.`9945`.Kernel.Signal.Error) -> ISO.`9945`.Kernel.Signal.Action.Configuration {
+        try unsafe ISO.`9945`.Kernel.Signal.Action.get(signal: signal)
     }
 }

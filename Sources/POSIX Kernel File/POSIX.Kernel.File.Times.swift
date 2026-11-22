@@ -7,19 +7,19 @@ extension POSIX.Kernel.File {
 
 extension POSIX.Kernel.File.Times {
 
-    public typealias Error = ISO_9945.Kernel.File.Times.Error
+    public typealias Error = ISO.`9945`.Kernel.File.Times.Error
 }
 
 extension POSIX.Kernel.File.Times {
 
     @inlinable
     public static func set(
-        access accessTime: ISO_9945.Kernel.Time,
-        modification modificationTime: ISO_9945.Kernel.Time,
+        access accessTime: ISO.`9945`.Kernel.Time,
+        modification modificationTime: ISO.`9945`.Kernel.Time,
         at path: borrowing Path.Borrowed,
         followSymlinks: Bool = true
-    ) throws(ISO_9945.Kernel.File.Times.Error) {
-        try ISO_9945.Kernel.File.Times.set(
+    ) throws(ISO.`9945`.Kernel.File.Times.Error) {
+        try ISO.`9945`.Kernel.File.Times.set(
             access: accessTime,
             modification: modificationTime,
             at: path,
@@ -29,11 +29,11 @@ extension POSIX.Kernel.File.Times {
 
     @inlinable
     public static func set(
-        access accessTime: ISO_9945.Kernel.Time,
-        modification modificationTime: ISO_9945.Kernel.Time,
-        on descriptor: borrowing ISO_9945.Kernel.Descriptor
-    ) throws(ISO_9945.Kernel.File.Times.Error) {
-        try ISO_9945.Kernel.File.Times.set(
+        access accessTime: ISO.`9945`.Kernel.Time,
+        modification modificationTime: ISO.`9945`.Kernel.Time,
+        on descriptor: borrowing ISO.`9945`.Kernel.Descriptor
+    ) throws(ISO.`9945`.Kernel.File.Times.Error) {
+        try ISO.`9945`.Kernel.File.Times.set(
             access: accessTime,
             modification: modificationTime,
             on: descriptor

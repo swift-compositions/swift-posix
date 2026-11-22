@@ -7,20 +7,20 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Signal {
 
-    public typealias Error = ISO_9945.Kernel.Signal.Error
+    public typealias Error = ISO.`9945`.Kernel.Signal.Error
 }
 
 extension POSIX.Kernel.Signal {
 
-    public typealias Information = ISO_9945.Kernel.Signal.Information
+    public typealias Information = ISO.`9945`.Kernel.Signal.Information
 }
 
 extension POSIX.Kernel.Signal {
 
-    public typealias Number = ISO_9945.Kernel.Signal.Number
+    public typealias Number = ISO.`9945`.Kernel.Signal.Number
 }
 
 extension POSIX.Kernel.Signal {
 
-    public typealias Set = ISO_9945.Kernel.Signal.Set
+    public typealias Set = ISO.`9945`.Kernel.Signal.Set
 }

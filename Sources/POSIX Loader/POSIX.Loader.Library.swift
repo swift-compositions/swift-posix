@@ -9,9 +9,9 @@
 
     extension POSIX.Loader.Library {
 
-        public typealias Handle = ISO_9945.Loader.Library.Handle
+        public typealias Handle = ISO.`9945`.Loader.Library.Handle
 
-        public typealias Options = ISO_9945.Loader.Library.Options
+        public typealias Options = ISO.`9945`.Loader.Library.Options
     }
 
     extension POSIX.Loader.Library {
@@ -20,15 +20,15 @@
         @inlinable
         public static func open(
             path: UnsafePointer<CChar>?,
-            options: ISO_9945.Loader.Library.Options = .now
+            options: ISO.`9945`.Loader.Library.Options = .now
         ) throws(Loader.Error) -> Loader.Library.Handle {
-            try unsafe ISO_9945.Loader.Library.open(path: path, options: options)
+            try unsafe ISO.`9945`.Loader.Library.open(path: path, options: options)
         }
 
         @unsafe
         @inlinable
         public static func close(_ handle: Loader.Library.Handle) throws(Loader.Error) {
-            try unsafe ISO_9945.Loader.Library.close(handle)
+            try unsafe ISO.`9945`.Loader.Library.close(handle)
         }
     }
 #endif

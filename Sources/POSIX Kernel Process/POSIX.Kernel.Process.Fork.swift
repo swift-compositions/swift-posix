@@ -7,15 +7,15 @@ extension POSIX.Kernel.Process {
 
 extension POSIX.Kernel.Process.Fork {
 
-    public typealias Result = ISO_9945.Kernel.Process.Fork.Result
+    public typealias Result = ISO.`9945`.Kernel.Process.Fork.Result
 }
 
 extension POSIX.Kernel.Process.Fork {
 
     @inlinable
-    public static func fork() throws(ISO_9945.Kernel.Process.Error)
-        -> ISO_9945.Kernel.Process.Fork.Result
+    public static func fork() throws(ISO.`9945`.Kernel.Process.Error)
+        -> ISO.`9945`.Kernel.Process.Fork.Result
     {
-        try ISO_9945.Kernel.Process.Fork.fork()
+        try ISO.`9945`.Kernel.Process.Fork.fork()
     }
 }

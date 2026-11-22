@@ -146,11 +146,11 @@ extension Glob {
         case .pattern:
             let entries = try listDirectory(currentPath.view, options: options)
 
-            var fnmatchFlags: ISO_9945.Glob.Fnmatch.Options = [.pathname]
+            var fnmatchFlags: ISO.`9945`.Glob.Fnmatch.Options = [.pathname]
             if options.caseInsensitive { fnmatchFlags.insert(.casefold) }
             if options.dotfiles == .explicit { fnmatchFlags.insert(.period) }
 
-            let matchedEntries: [ISO_9945.Kernel.Directory.Entry]
+            let matchedEntries: [ISO.`9945`.Kernel.Directory.Entry]
             do throws(Path.String.Conversion.Error) {
                 matchedEntries = try Path.scope(segmentStrings[segmentIndex]) { segmentView in
                     entries.filter { entry in
@@ -160,8 +160,8 @@ extension Glob {
                         return entry.withName { name in
 
                             {
-                                do throws(ISO_9945.Glob.Fnmatch.Error) {
-                                    return try ISO_9945.Glob.fnmatch(
+                                do throws(ISO.`9945`.Glob.Fnmatch.Error) {
+                                    return try ISO.`9945`.Glob.fnmatch(
                                         pattern: segmentView,
                                         name: name,
                                         options: fnmatchFlags
@@ -242,7 +242,7 @@ extension Glob {
     }
 
     private static func shouldSkipEntry(
-        _ entry: ISO_9945.Kernel.Directory.Entry,
+        _ entry: ISO.`9945`.Kernel.Directory.Entry,
         options: Options,
         forDoubleStar: Bool
     ) -> Bool {
@@ -271,18 +271,18 @@ extension Glob {
     private static func listDirectory(
         _ path: borrowing Path.Borrowed,
         options: Options
-    ) throws(Error) -> [ISO_9945.Kernel.Directory.Entry] {
-        let stream: ISO_9945.Kernel.Directory.Stream
-        do throws(ISO_9945.Kernel.Directory.Error) {
-            stream = try ISO_9945.Kernel.Directory.open(at: path)
+    ) throws(Error) -> [ISO.`9945`.Kernel.Directory.Entry] {
+        let stream: ISO.`9945`.Kernel.Directory.Stream
+        do throws(ISO.`9945`.Kernel.Directory.Error) {
+            stream = try ISO.`9945`.Kernel.Directory.open(at: path)
         } catch {
             if options.onError == .skip { return [] }
             throw Self.Error(from: error, pathView: path)
         }
         defer { stream.close() }
 
-        var entries: [ISO_9945.Kernel.Directory.Entry] = []
-        do throws(ISO_9945.Kernel.Directory.Error) {
+        var entries: [ISO.`9945`.Kernel.Directory.Entry] = []
+        do throws(ISO.`9945`.Kernel.Directory.Error) {
             while let entry = try stream.next() {
                 guard !entry.isDotOrDotDot else { continue }
                 entries.append(entry)
@@ -297,8 +297,8 @@ extension Glob {
     }
 
     private static func pathExists(_ path: borrowing Path.Borrowed) -> Bool {
-        do throws(ISO_9945.Kernel.File.Stats.Error) {
-            _ = try ISO_9945.Kernel.File.Stats.get(path: path)
+        do throws(ISO.`9945`.Kernel.File.Stats.Error) {
+            _ = try ISO.`9945`.Kernel.File.Stats.get(path: path)
             return true
         } catch {
             return false
@@ -306,12 +306,12 @@ extension Glob {
     }
 
     private static func isDirectory(_ path: borrowing Path.Borrowed, followSymlinks: Bool) -> Bool {
-        let stats: ISO_9945.Kernel.File.Stats?
-        do throws(ISO_9945.Kernel.File.Stats.Error) {
+        let stats: ISO.`9945`.Kernel.File.Stats?
+        do throws(ISO.`9945`.Kernel.File.Stats.Error) {
             stats =
                 followSymlinks
-                ? try ISO_9945.Kernel.File.Stats.get(path: path)
-                : try ISO_9945.Kernel.File.Stats.lget(path: path)
+                ? try ISO.`9945`.Kernel.File.Stats.get(path: path)
+                : try ISO.`9945`.Kernel.File.Stats.lget(path: path)
         } catch {
             stats = nil
         }
@@ -320,7 +320,7 @@ extension Glob {
 
     private static func appendPath(
         _ base: borrowing Path,
-        _ entry: ISO_9945.Kernel.Directory.Entry
+        _ entry: ISO.`9945`.Kernel.Directory.Entry
     ) -> Path {
         let separator = separator(after: base)
         return entry.withName { name in
@@ -357,14 +357,14 @@ extension Glob {
 
 extension Glob.Error {
 
-    init(from error: ISO_9945.Kernel.Directory.Error, pathView: borrowing Path.Borrowed) {
+    init(from error: ISO.`9945`.Kernel.Directory.Error, pathView: borrowing Path.Borrowed) {
         let path = unsafe Swift.String(
             cString: UnsafeRawPointer(pathView.pointer).assumingMemoryBound(to: CChar.self)
         )
         self.init(from: error, path: path)
     }
 
-    init(from error: ISO_9945.Kernel.Directory.Error, path: Swift.String) {
+    init(from error: ISO.`9945`.Kernel.Directory.Error, path: Swift.String) {
         switch error {
         case .permission:
             self = .accessDenied(path: path)

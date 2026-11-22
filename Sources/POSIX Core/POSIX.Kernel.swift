@@ -10,10 +10,10 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel {
 
-    public typealias Permission = ISO_9945.Kernel.Permission
+    public typealias Permission = ISO.`9945`.Kernel.Permission
 }
 
 extension POSIX.Kernel {
 
-    public typealias Storage = ISO_9945.Kernel.Storage
+    public typealias Storage = ISO.`9945`.Kernel.Storage
 }

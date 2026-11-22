@@ -8,23 +8,23 @@ extension POSIX.Kernel {
 
 extension POSIX.Kernel.Poll {
 
-    public typealias Events = ISO_9945.Kernel.Poll.Events
+    public typealias Events = ISO.`9945`.Kernel.Poll.Events
 
-    public typealias Entry = ISO_9945.Kernel.Poll.Entry
+    public typealias Entry = ISO.`9945`.Kernel.Poll.Entry
 }
 
 extension POSIX.Kernel.Poll {
 
     @inlinable
     public static func poll(
-        _ entries: inout [ISO_9945.Kernel.Poll.Entry],
+        _ entries: inout [ISO.`9945`.Kernel.Poll.Entry],
         timeout: Int32
     ) throws(Error::Error) -> Int {
 
         guard timeout > 0 else {
             while true {
                 do throws(Error::Error) {
-                    return try ISO_9945.Kernel.Poll.poll(&entries, timeout: timeout)
+                    return try ISO.`9945`.Kernel.Poll.poll(&entries, timeout: timeout)
                 } catch  where error.code.isInterrupted {
                     continue
                 }
@@ -35,7 +35,7 @@ extension POSIX.Kernel.Poll {
         var remaining = timeout
         while true {
             do throws(Error::Error) {
-                return try ISO_9945.Kernel.Poll.poll(&entries, timeout: remaining)
+                return try ISO.`9945`.Kernel.Poll.poll(&entries, timeout: remaining)
             } catch  where error.code.isInterrupted {
                 let elapsedMilliseconds = UInt64((Clock.Continuous.now.offset - start.offset) / .milliseconds(1))
                 guard elapsedMilliseconds < UInt64(timeout) else {
