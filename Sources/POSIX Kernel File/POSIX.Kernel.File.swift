@@ -29,3 +29,8 @@ extension POSIX.Kernel.File {
 
     public typealias Stats = ISO.`9945`.Kernel.File.Stats
 }
+
+extension POSIX.Kernel.File {
+
+    public typealias System = ISO.`9945`.Kernel.File.System
+}
